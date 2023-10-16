@@ -1,0 +1,11 @@
+<p *ngIf="isCreating">Crear un nuevo usuario</p>
+<p *ngIf="isCreating == false">Actualizar usuario</p>
+<form #formulario="ngForm" (submit)="onSubmit(formulario.value)">
+  <div>
+    <input type="hidden" id="id" name="id" [(ngModel)]="userToUpdate.id">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" [(ngModel)]="userToUpdate.name">
+  </div>
+  <button *ngIf="isCreating" mat-button color="primary" type="submit">Guardar</button>
+  <button *ngIf="isCreating == false" mat-button color="primary" type="submit">Actualizar</button>
+</form>

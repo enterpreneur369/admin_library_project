@@ -1,0 +1,31 @@
+<p *ngIf="isCreating">Crear un nuevo libro</p>
+<p *ngIf="isCreating == false">Actualizar libro</p>
+<form #formulario="ngForm" (submit)="onSubmit(formulario.value)">
+  <div>
+    <input type="hidden" id="id" name="id" [(ngModel)]="bookToUpdate.id">
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" [(ngModel)]="bookToUpdate.title">
+  </div>
+  <div>
+    <label for="author">Autor</label>
+    <input type="text" id="author" name="author" [(ngModel)]="bookToUpdate.author">
+  </div>
+  <div>
+    <label for="publicationYear">Año de Publicación</label>
+    <input type="number" id="publicationYear" name="publicationYear" [(ngModel)]="bookToUpdate.publicationYear">
+  </div>
+  <div>
+    <label for="genre">Género</label>
+    <input type="text" id="genre" name="genre" [(ngModel)]="bookToUpdate.genre">
+  </div>
+  <div>
+    <label for="availableQuantity">Cantidad Disponible</label>
+    <input type="number" id="availableQuantity" name="availableQuantity" [(ngModel)]="bookToUpdate.availableQuantity">
+  </div>
+  <div>
+    <label for="isbn">ISBN</label>
+    <input type="text" id="isbn" name="isbn" [(ngModel)]="bookToUpdate.isbn">
+  </div>
+  <button *ngIf="isCreating" mat-button color="primary" type="submit">Guardar</button>
+  <button *ngIf="isCreating == false" mat-button color="primary" type="submit">Actualizar</button>
+</form>
