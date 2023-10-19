@@ -1,1 +1,26 @@
-<p>loan-details works!</p>
+<p *ngIf="isCreating">Crear un nuevo préstamo</p>
+<p *ngIf="!isCreating">Actualizar préstamo</p>
+<form #formulario="ngForm" (submit)="onSubmit(formulario.value)">
+  <div>
+    <input type="hidden" id="id" name="id" [(ngModel)]="loanToUpdate.id">
+    <label for="book">Libro</label>
+    <select id="book" name="book" [(ngModel)]="selectedBook">
+      <option *ngFor="let book of books" [ngValue]="book">{{ book.title }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="user">Usuario</label>
+    <select id="user" name="user" [(ngModel)]="selectedUser">
+      <option *ngFor="let user of users" [ngValue]="user">{{ user.name }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="loanDate">Fecha de Préstamo</label>
+    <input type="date" id="loanDate" name="loanDate" [(ngModel)]="loanToUpdate.loanDate">
+  </div>
+  <div>
+    <input type="hidden" id="returnDate" name="returnDate" [(ngModel)]="loanToUpdate.returnDate">
+  </div>
+  <button *ngIf="isCreating" mat-button color="primary" type="submit">Guardar</button>
+  <button *ngIf="!isCreating" mat-button color="primary" type="submit">Actualizar</button>
+</form>

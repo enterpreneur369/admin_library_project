@@ -6,6 +6,7 @@ import { BookManagementComponent } from './components/book-management/book-manag
 import { LoanManagementComponent } from './components/loan-management/loan-management.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { LoanDetailsComponent } from './components/loan-details/loan-details.component';
 
 const routes: Routes = [
   {path:"", component:LibraryAdminComponent},
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path:"detalle-libro", component:BookDetailsComponent},
   {path:"detalle-libro/:id", component:BookDetailsComponent},
   {path:"detalle-usuario", component:UserDetailsComponent},
-  {path:"detalle-usuario/:id", component:UserDetailsComponent}
+  {path:"detalle-usuario/:id", component:UserDetailsComponent},
+  {path:"detalle-prestamo", component:LoanDetailsComponent},
+  {path:"detalle-prestamo/:id", component:LoanDetailsComponent}
 ];
 
 @NgModule({

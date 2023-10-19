@@ -24,7 +24,6 @@ export class BookService {
   }
 
   updateBook(book: Book): Observable<Book> {
-    console.log(book);
     return this.http.put<Book>(`${this.rootURL}/book/updateBook/${book.id}`, book);
   }
 
